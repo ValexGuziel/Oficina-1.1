@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `ordens_servico` (
   `id` int(11) NOT NULL,
+  `numero_os_manual` varchar(50) DEFAULT NULL,
   `cliente` varchar(255) NOT NULL,
   `equipamento` varchar(255) NOT NULL,
   `descricao_problema` text NOT NULL,
@@ -43,11 +44,11 @@ CREATE TABLE `ordens_servico` (
 -- Despejando dados para a tabela `ordens_servico`
 --
 
-INSERT INTO `ordens_servico` (`id`, `cliente`, `equipamento`, `descricao_problema`, `status`, `data_abertura`, `data_conclusao`, `setor`, `prioridade`) VALUES
-(16, 'Claudio', 'Fulão', 'sem feltro', 'Aberta', '2025-07-27 10:12:25', NULL, 'Embalagem', 'BAIXA'),
-(17, 'Claudio', 'Motobomba da Caldeira', 'motor em curto', 'Em Andamento', '2025-07-27 18:40:56', NULL, 'Embalagem', 'ALTA'),
-(18, 'Claudio', 'Compressor HVAC B', 'não funciona', 'Aguardando Peças', '2025-07-27 18:41:32', NULL, 'Embalagem', 'MÉDIA'),
-(19, 'João', 'seladora em l', 'fio niquel cromo arrebentou', 'Concluída', '2025-07-29 21:35:39', '2025-07-29 21:40:31', 'Embalagem', 'MÉDIA');
+INSERT INTO `ordens_servico` (`id`, `numero_os_manual`, `cliente`, `equipamento`, `descricao_problema`, `status`, `data_abertura`, `data_conclusao`, `setor`, `prioridade`) VALUES
+(16, NULL, 'Claudio', 'Fulão', 'sem feltro', 'Aberta', '2025-07-27 10:12:25', NULL, 'Embalagem', 'BAIXA'),
+(17, NULL, 'Claudio', 'Motobomba da Caldeira', 'motor em curto', 'Em Andamento', '2025-07-27 18:40:56', NULL, 'Embalagem', 'ALTA'),
+(18, NULL, 'Claudio', 'Compressor HVAC B', 'não funciona', 'Aguardando Peças', '2025-07-27 18:41:32', NULL, 'Embalagem', 'MÉDIA'),
+(19, NULL, 'João', 'seladora em l', 'fio niquel cromo arrebentou', 'Concluída', '2025-07-29 21:35:39', '2025-07-29 21:40:31', 'Embalagem', 'MÉDIA');
 
 --
 -- Índices para tabelas despejadas

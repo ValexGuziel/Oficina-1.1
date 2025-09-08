@@ -8,13 +8,13 @@ if (isset($_GET['status_filtro']) && !empty($_GET['status_filtro'])) {
     $filtro_status = $conn->real_escape_string($_GET['status_filtro']);
 }
 
-$sql_select = "SELECT id, cliente, setor, equipamento, prioridade, descricao_problema, status, data_abertura, data_conclusao FROM ordens_servico";
+$sql_select = "SELECT id, numero_os_manual, cliente, setor, equipamento, prioridade, descricao_problema, status, data_abertura, data_conclusao FROM ordens_servico";
 
 if ($filtro_status) {
     $sql_select .= " WHERE status = '$filtro_status'";
 }
 
-$sql_select .= " ORDER BY prioridade DESC" and "data_abertura DESC";
+$sql_select .= " ORDER BY data_abertura DESC, FIELD(prioridade, 'URGENTE', 'MÉDIA', 'BAIXA')";
 
 $result = $conn->query($sql_select);
 
@@ -363,6 +363,7 @@ $result = $conn->query($sql_select);
                                 <th>Equipamento</th>
                                 <th>Prioridade</th>
                                 <th>Problema</th>
+                                <th>Nº OS</th>
                                 <th>Status</th>
                                 <th>Abertura</th>
                                 <th>Conclusão</th>
@@ -397,6 +398,7 @@ $result = $conn->query($sql_select);
                                         <?php echo htmlspecialchars($row['prioridade'] ?? 'N/A'); ?>
                                     </td>
                                     <td><?php echo htmlspecialchars($row['descricao_problema']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['numero_os_manual'] ?? 'N/A'); ?></td>
                                     <td class="status-<?php echo strtolower(str_replace(' ', '-', $row['status'])); ?>">
                                         <?php echo $row['status']; ?>
                                     </td>

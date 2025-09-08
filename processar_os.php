@@ -57,16 +57,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" || (isset($_GET['acao']) && $_GET['acao
 
 
         case 'editar':
-            if (isset($_POST['id_os']) && isset($_POST['cliente']) && isset($_POST['setor']) && isset($_POST['equipamento']) && isset($_POST['prioridade']) && isset($_POST['descricao_problema']) && isset($_POST['status'])) {
+            if (isset($_POST['id_os']) && isset($_POST['cliente']) && isset($_POST['setor']) && isset($_POST['equipamento']) && isset($_POST['prioridade']) && isset($_POST['descricao_problema']) && isset($_POST['status']) && isset($_POST['numero_os_manual'])) {
                 $id_os = (int) $_POST['id_os'];
                 $cliente = $conn->real_escape_string($_POST['cliente']);
                 $setor = $conn->real_escape_string($_POST['setor']);
                 $equipamento = $conn->real_escape_string($_POST['equipamento']);
                 $prioridade = $conn->real_escape_string($_POST['prioridade']);
+                $numero_os_manual = $conn->real_escape_string($_POST['numero_os_manual']);
                 $descricao_problema = $conn->real_escape_string($_POST['descricao_problema']);
                 $status = $conn->real_escape_string($_POST['status']);
 
-                $update_sql = "UPDATE ordens_servico SET cliente = '$cliente', setor = '$setor', equipamento = '$equipamento', prioridade = '$prioridade', descricao_problema = '$descricao_problema', status = '$status'";
+                $update_sql = "UPDATE ordens_servico SET numero_os_manual = '$numero_os_manual', cliente = '$cliente', setor = '$setor', equipamento = '$equipamento', prioridade = '$prioridade', descricao_problema = '$descricao_problema', status = '$status'";
 
                 if ($status == 'Concluída') {
                     $check_date_sql = "SELECT data_conclusao FROM ordens_servico WHERE id = $id_os";

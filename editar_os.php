@@ -6,7 +6,7 @@ $os = null; // Inicializa a variável para a ordem de serviço
 if (isset($_GET['id'])) {
     $id_os = (int) $_GET['id'];
     // **Atualiza a query SQL para selecionar também 'setor' e 'prioridade'**
-    $sql_select_os = "SELECT id, cliente, setor, equipamento, prioridade, descricao_problema, status, data_abertura, data_conclusao FROM ordens_servico WHERE id = $id_os";
+    $sql_select_os = "SELECT id, numero_os_manual, cliente, setor, equipamento, prioridade, descricao_problema, status, data_abertura, data_conclusao FROM ordens_servico WHERE id = $id_os";
     $result_os = $conn->query($sql_select_os);
 
     if ($result_os->num_rows > 0) {
@@ -126,6 +126,11 @@ if (isset($_GET['id'])) {
             <input type="hidden" name="acao" value="editar">
 
             <div class="form-row">
+                <label for="numero_os_manual">Nº OS (Manual):</label>
+                <input type="text" id="numero_os_manual" name="numero_os_manual" value="<?php echo htmlspecialchars($os['numero_os_manual'] ?? ''); ?>">
+            </div>
+
+            <div class="form-row">
                 <label for="cliente">Solicitante:</label>
                 <input type="text" id="cliente" name="cliente" value="<?php echo htmlspecialchars($os['cliente']); ?>"
                     required>
@@ -168,7 +173,7 @@ if (isset($_GET['id'])) {
             <br><br>
 
             <button type="submit">Salvar Alterações</button>
-            <button type="button" class="cancel-btn" onclick="window.location.href='index.php';">Cancelar</button>
+            <button type="button" class="cancel-btn" onclick="window.location.href='lista_os.php';">Cancelar</button>
         </form>
     </div>
 </body>
