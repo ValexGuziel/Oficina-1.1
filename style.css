@@ -1,0 +1,509 @@
+/* --- Estilos Globais e da Página Principal (index.php) --- */
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+  background-color: rgb(230, 229, 238);
+  margin: 0;
+
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-wrapper {
+  display: flex;
+}
+
+/* --- Estilos da Navbar --- */
+.navbar {
+  width: 100%;
+  background-color: #2c2a5a;
+  color: white;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-end;
+  /* Alinha os itens à direita */
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffa601;
+}
+
+.navbar .nav-links {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .nav-links a,
+.navbar .nav-links button {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.main-content {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+}
+
+.container {
+  width: 80%;
+  max-width: 900px;
+  /* Adicionado para limitar a largura em telas grandes */
+  background: #e4e2e2ff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #a7adc4;
+  box-sizing: border-box;
+}
+
+.header-wrapper {
+  display: flex;
+  background: #e4e2e2ff;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  max-width: 900px;
+  margin-bottom: 20px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header-image {
+  width: 100px;
+  height: auto;
+  border-radius: 8px;
+}
+
+h1 {
+  text-align: center;
+  color: rgba(0, 0, 0, 1);
+  text-shadow:
+    -1px -1px 0 rgba(255, 166, 1, 1),
+    1px -1px 0 rgba(255, 166, 1, 1),
+    -1px 1px 0 rgba(255, 166, 1, 1),
+    1px 1px 0 rgba(255, 166, 1, 1);
+  margin: 0 20px;
+}
+
+form {
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+select,
+textarea {
+  text-transform: uppercase;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 3px 3px 8px rgba(10, 1, 61, 0.4);
+  box-sizing: border-box;
+}
+
+
+.view-solicitacoes-button {
+  background-color: #2e802aff;
+  color: white;
+  font-size: 14px;
+  padding: 10px 15px;
+  border: 1px solid #114b0eff;
+  border-radius: 30px;
+  box-shadow: 3px 3px 8px rgba(1, 4, 37, 0.4);
+  margin-right: 10px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+
+button:hover,
+.view-solicitacoes-button:hover {
+  background-color: #176b16ff;
+}
+
+.view-solicitacoes-button {
+  background-color: #007bff;
+  border: 1px solid #0056b3;
+}
+
+.view-solicitacoes-button:hover {
+  background-color: #0056b3;
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.form-row label {
+  margin-bottom: 0;
+  min-width: 80px;
+}
+
+.form-row input[type="text"],
+.form-row select {
+  flex: 1 1 200px;
+  width: auto;
+  margin-bottom: 0;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  /* Alinha itens verticalmente */
+  flex-wrap: wrap;
+  /* Permite quebra de linha em telas pequenas */
+  gap: 10px;
+  /* Espaço entre os itens */
+}
+
+.flash-message {
+  display: none;
+  font-weight: bold;
+  margin-left: 10px;
+  /* Espaço entre os botões e a mensagem */
+}
+
+.flash-message.success {
+  color: green;
+}
+
+.flash-message.error {
+  color: red;
+}
+
+/* --- Media Queries (index.php) --- */
+@media (max-width: 768px) {
+  .container {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .header-wrapper {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .header-image {
+    margin-bottom: 10px;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 10px 0;
+  }
+
+  .form-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .form-row input[type="text"],
+  .form-row select {
+    flex: none;
+    width: 100%;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .buttons button,
+  .buttons a {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .flash-message {
+    margin-left: 0;
+    /* Remove o espaçamento em telas pequenas */
+  }
+}
+
+
+/* --- Estilos da Página de Lista (lista_os.php) --- */
+.container-top {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-evenly;
+  max-width: 100vw;
+  background: #e4e2e2ff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #d4c7c7ff;
+}
+
+.container-lista {
+  max-width: 100vw;
+  height: 100vh;
+  margin: auto;
+  background: #e4e2e2ff;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 65vh;
+}
+
+.solicitacao-atual {
+  text-align: center;
+  color: #000000;
+  border-bottom: 1px solid #818080ff;
+}
+
+.button-h1 {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 250px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+th,
+td {
+  border: 1px solid #b9b9b9ff;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #acb1d2ff;
+}
+
+tbody td {
+  font-size: 12px;
+  vertical-align: middle;
+  padding: 3px 5px;
+  text-transform: uppercase;
+}
+
+.status-aberta {
+  color: #dc3545;
+  font-weight: bold;
+}
+
+.status-em-andamento {
+  color: #deac15ff;
+  font-weight: bold;
+}
+
+.status-concluída {
+  color: #40b82bff;
+  font-weight: bold;
+}
+
+.status-aguardando-peças {
+  color: #3c2374ff;
+  font-weight: bold;
+}
+
+.status-cancelada {
+  color: #6c757d;
+  font-weight: bold;
+}
+
+.acoes select[name="novo_status"] {
+  font-size: 11px;
+  padding: 3px 5px;
+}
+
+.acoes a {
+  margin-right: 10px;
+  text-decoration: none;
+  color: #007bff;
+}
+
+.acoes a:hover {
+  text-decoration: underline;
+}
+
+.acoes .delete-btn {
+  color: #dc3545;
+}
+
+.acoes .delete-btn:hover {
+  color: #c82333;
+}
+
+.back-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: 1px solid #0056b3;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+.fa-pen {
+  color: #007bff;
+}
+
+.fa-trash {
+  color: #dc3545;
+}
+
+.fa-print {
+  color: #28a745;
+}
+
+a i:hover {
+  transform: scale(1.2);
+  transition: transform 0.2s ease-in-out;
+}
+
+.prioridade-baixa {
+  background-color: #389e2fff;
+  color: #000000;
+}
+
+.prioridade-media {
+  background-color: #ffc107;
+  color: #000000;
+}
+
+.prioridade-urgente {
+  background-color: #ac0b1bff;
+  color: #ffffff;
+}
+
+.filtro-form {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-right: 50px;
+  text-align: right;
+}
+
+.filtro-form label {
+  font-weight: bold;
+  color: #555;
+  margin-right: 10px;
+}
+
+.filtro-form select {
+  padding: 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 12px;
+}
+
+.print-list-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 32px;
+  border: 1px solid #0056b3;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  margin-bottom: 20px;
+}
+
+.print-list-button:hover {
+  background-color: #0056b3;
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  .print-container,
+  .print-container * {
+    visibility: visible;
+  }
+
+  .print-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  /* Opcional: ajustar estilos para impressão */
+  .print-container table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .print-container th,
+  .print-container td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .print-container th {
+    background-color: #acb1d2ff;
+  }
+
+  .acoes {
+    display: none;
+    /* Oculta a coluna de Ações na impressão */
+  }
+}
+
+/* --- Estilos da Página de Edição (editar_os.php) --- */
+.container-edit {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cancel-btn {
+  background-color: #6c757d;
+}
+
+.cancel-btn:hover {
+  background-color: #5a6268;
+}

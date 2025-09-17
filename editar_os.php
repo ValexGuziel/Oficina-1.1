@@ -27,98 +27,18 @@ if (isset($_GET['id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> <!-- CSS Centralizado -->
     <title>Editar Ordem de Serviço</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            background-color: #f4f4f4;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h1 {
-            color: #333;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input[type="text"],
-        textarea,
-        select {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin-bottom: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-
-        button {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 16px;
-            margin-right: 10px;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        .cancel-btn {
-            background-color: #6c757d;
-        }
-
-        .cancel-btn:hover {
-            background-color: #5a6268;
-        }
-
-        /* **Adicionado estilo para alinhar labels e inputs na mesma linha** */
-        .form-row {
-            display: flex;
-            align-items: center;
-            /* Alinha verticalmente no centro */
-            gap: 20px;
-            /* Espaço entre os elementos na linha */
-            margin-bottom: 10px;
-            /* Espaço abaixo da linha */
-        }
-
-        .form-row label {
-            margin-bottom: 0;
-            /* Remove a margem inferior padrão do label */
-            min-width: 80px;
-            /* Garante que o label tenha um tamanho mínimo */
-        }
-
-        .form-row input[type="text"],
-        .form-row select {
-            flex-grow: 1;
-            /* Permite que o input preencha o espaço restante */
-            width: auto;
-            /* Anula o width fixo para permitir flex-grow */
-            margin-bottom: 0;
-            /* Remove a margem inferior padrão do input */
-        }
-    </style>
 </head>
 
 <body>
-    <div class="container">
+    <nav class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.php" class="view-solicitacoes-button">Abrir Solicitação</a></li>
+            <li><a href="lista_os.php" class="view-solicitacoes-button">Ver Solicitações</a></li>
+        </ul>
+    </nav>
+    <div class="container-edit">
         <h1>Editar Ordem de Serviço #<?php echo $os['id']; ?></h1>
 
         <form action="processar_os.php" method="POST">
